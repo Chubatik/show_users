@@ -1,0 +1,58 @@
+h4.modal-title{
+    text-align: center;
+    font: bold;
+}
+@font-face {
+    font-family: 'Material Icons';
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://example.com/MaterialIcons-Regular.eot); /* For IE6-8 */
+    src: local('Material Icons'),
+      local('MaterialIcons-Regular'),
+      url(https://example.com/MaterialIcons-Regular.woff2) format('woff2'),
+      url(https://example.com/MaterialIcons-Regular.woff) format('woff'),
+      url(https://example.com/MaterialIcons-Regular.ttf) format('truetype');
+  }
+  .material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;  /* Preferred icon size */
+  display: inline-block;
+  line-height: 1;
+  text-transform: none;
+  letter-spacing: normal;
+  word-wrap: normal;
+  white-space: nowrap;
+  direction: ltr;
+  }
+  
+td,th{
+   text-align: center;
+}
+.hovered-favRepos{
+    height: 24px;
+    width: 24px;
+    margin: 0 auto;
+    background: url("src/app/icon/whiteDelete.svg") no-repeat; 
+}
+.hovered-favRepos:hover{
+    height: 24px;
+    width: 24px;
+    margin: 0 auto;
+    background: url("src/app/icon/blackDelete.svg") no-repeat; 
+}
+
+
+.hovered-repos{
+    height: 21px;
+    margin: 0 auto;
+    width: 21px;
+    background: url("src/app/icon/whiteStar.svg") no-repeat; 
+}
+.hovered-repos:hover{
+    height: 24px;
+    margin: 0 auto;
+    width: 24px;
+    background: url("src/app/icon/blackStar.svg") no-repeat;
+}

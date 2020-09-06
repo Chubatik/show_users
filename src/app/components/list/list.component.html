@@ -1,0 +1,35 @@
+
+    <div class="ng-autocomplete">
+        <ng-autocomplete 
+            [data]="users"
+            [searchKeyword]="keyword"
+            placeHolder="Enter Login"
+            (selected)='selectEvent()'
+            historyIdentifier="users"
+            [itemTemplate]="itemTemplate"
+            [notFoundTemplate]="notFoundTemplate">                  
+        </ng-autocomplete>
+     
+    <ng-template #itemTemplate let-item>
+    <a [innerHTML]="item.login"></a>
+    </ng-template>
+     
+    <ng-template #notFoundTemplate let-notFound>
+    <div class="alert alert-danger" [innerHTML]="notFound"></div>
+    </ng-template>
+    </div>
+    <br>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <th scope="col">Avatar</th>
+        <th scope="col">Login</th>
+    </thead>
+    <tbody>
+         <tr *ngFor="let user of users" (click)="selectEvent()">
+        <th scope="row"><img src="{{user?.avatar_url}}"></th>
+        <th scope="row" >{{user?.login}}</th>
+        </tr>
+    </tbody>
+   
+</table>

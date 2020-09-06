@@ -1,0 +1,76 @@
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">{{user[index].name}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+   <ul>
+     <li><p>Description:</p>
+          <p>{{user[index].description}}</p>
+      </li>
+     <li>
+       <p>Language:</p>
+       <p>{{user[index].language}}</p>
+      </li>
+     <li>
+       <p>Has issues:</p>
+       <p>
+         <i class="material-icons" *ngIf="user[index].has_issues">check_circle</i>
+         <i class="material-icons" *ngIf="!user[index].has_issues">cancel</i>
+        </p> 
+     </li>
+
+     <li>
+       <p>HTML URL:</p>
+       <p><a href={{user[index].html_url}}>{{user[index].html_url}}</a></p>
+      </li>
+   </ul>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+  </div>
+</ng-template>
+
+<ng-template #favReposModal let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-basic-title">Favourites repos</h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <ul *ngFor="let repo of favRepos">
+          <li>
+            {{repo}} 
+            <button class="btn btn-secondary hovered-favRepos" (click)="remove(repo)"></button>
+            <!--
+            <i class="material-icons hovered-favRepos" (click)="remove(repo)">delete</i>-->
+          </li>
+      </ul>
+    </div>
+    <div class="modal-footer">
+      <button type="button" class="btn btn-outline-dark" (click)="modal.close('Save click')">Ok</button>
+    </div>
+  </ng-template>
+
+<table class="table table-bordered table-hover">
+    <thead>
+        <th scope="col">Name</th>
+        <th scope="col">Description</th>
+        <th scope="col">Add to favourites</th>
+    </thead>
+    <tbody>
+         <tr *ngFor="let u of user; let i = index" >
+        <td scope="row" (click)="open(mymodal); setIndex([i])"> {{u.name}}</td>
+        <td scope="row" (click)="open(mymodal); setIndex([i])">{{u.description}}</td>
+        <td scope="row">
+          <div class="hovered-repos" (click)="addItem([i])"></div>
+        </td>
+        </tr>
+    </tbody>
+</table>
+<div>
+  <button class="btn btn-primary" (click)="open(favReposModal); refresh()">Show favourites</button>
+</div>

@@ -1,0 +1,36 @@
+{
+  "version": 1,
+  "projects": {
+    "test_task": {
+      "projectType": "application",
+      "root": "",
+      "sourceRoot": "src",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/test_task",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.json",
+            "assets" : ["src/assets"],
+            "aot": true,
+            "styles":[ "node_modules/bootstrap/dist/css/bootstrap.min.css"]
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "test_task:build"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "test_task",
+  "cli": {
+    "analytics": false
+  }
+  
+}
