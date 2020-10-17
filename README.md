@@ -7,3 +7,4 @@ npm install
 npm start
 ```
 - Open your browser and go to http://localhost:4200/ address
+- The version with database will be later, ignore the last commit
